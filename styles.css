@@ -1,0 +1,204 @@
+/* Основные стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* Очень светло-серый фон для светлой темы */
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #1e1e1e; /* Темно-серый фон для тёмной темы */
+    color: #e0e0e0;
+}
+
+header {
+    background: #f8a5c2; /* Пастельный розовый фон для светлой темы */
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+body.dark-mode header {
+    background: #d76f8c; /* Более темный пастельный розовый для тёмной темы */
+}
+
+header:hover {
+    transform: none; /* Убрано увеличение при наведении */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+body.dark-mode .nav-btn {
+    color: #e0e0e0;
+}
+
+.nav-btn:hover {
+    background-color: #f77f8e; /* Светло-пастельный розовый при наведении для светлой темы */
+    transform: scale(1.1); /* Увеличение кнопки при наведении */
+}
+
+body.dark-mode .nav-btn:hover {
+    background-color: #e68a7d; /* Более тёмный пастельный розовый при наведении для тёмной темы */
+}
+
+main {
+    padding: 2rem;
+    background-color: #fff; /* Белый фон для основной области в светлой теме */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode main {
+    background-color: #2d2d2d; /* Тёмно-серый фон для основной области в тёмной теме */
+}
+
+.content {
+    display: none;
+    padding: 2rem;
+    margin: 1rem;
+    background: #fff; /* Белый фон для контента в светлой теме */
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.3s;
+}
+
+body.dark-mode .content {
+    background: #3a3a3a; /* Тёмно-серый фон для контента в тёмной теме */
+}
+
+.content.fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Увеличение тени при наведении */
+    transform: translateY(-5px); /* Поднятие контента при наведении */
+}
+
+section ul {
+    list-style: none;
+    padding: 0;
+}
+
+section ul li {
+    margin: 1rem 0;
+    transition: transform 0.3s, color 0.3s;
+}
+
+section ul li:hover {
+    transform: translateX(10px); /* Перемещение элемента при наведении */
+    color: #f77f8e; /* Изменение цвета текста при наведении */
+}
+
+section ul li a {
+    color: #f8a5c2; /* Пастельный розовый цвет ссылок для светлой темы */
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+body.dark-mode section ul li a {
+    color: #f8a5c2; /* Пастельный розовый цвет ссылок для тёмной темы */
+}
+
+section ul li a:hover {
+    color: #f77f8e; /* Тёмно-пастельный розовый цвет ссылок при наведении для светлой темы */
+    text-shadow: 0 0 5px rgba(255, 105, 180, 0.7); /* Сияние текста при наведении для светлой темы */
+}
+
+body.dark-mode section ul li a:hover {
+    color: #e68a7d; /* Тёмно-пастельный розовый цвет ссылок при наведении для тёмной темы */
+    text-shadow: 0 0 5px rgba(255, 105, 180, 0.5); /* Сияние текста при наведении для тёмной темы */
+}
+
+footer {
+    background: #f8a5c2; /* Пастельный розовый фон для светлой темы */
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+body.dark-mode footer {
+    background: #d76f8c; /* Более тёмный пастельный розовый для футера в тёмной теме */
+}
+
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #f8a5c2; /* Пастельный розовый фон для светлой темы */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, background-color 0.3s, transform 0.3s;
+    font-size: 20px;
+}
+
+body.dark-mode #scroll-to-top {
+    background: #d76f8c; /* Более тёмный пастельный розовый для кнопки в тёмной теме */
+    color: #e0e0e0;
+}
+
+#scroll-to-top:hover {
+    background-color: #f77f8e; /* Светло-пастельный розовый при наведении для светлой темы */
+    transform: scale(1.1); /* Увеличение кнопки при наведении */
+}
+
+body.dark-mode #scroll-to-top:hover {
+    background-color: #e68a7d; /* Тёмно-пастельный розовый при наведении для тёмной темы */
+    transform: scale(1.1); /* Увеличение кнопки при наведении */
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    color: #f8a5c2; /* Пастельный розовый цвет кнопки переключения темы */
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+body.dark-mode #theme-toggle {
+    color: #f8a5c2; /* Пастельный розовый цвет кнопки в тёмной теме */
+}
+
+#theme-toggle:hover {
+    color: #f77f8e; /* Светло-пастельный розовый при наведении на кнопку переключения темы */
+    transform: rotate(20deg); /* Вращение кнопки при наведении */
+}

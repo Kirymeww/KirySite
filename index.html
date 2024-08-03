@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт Kirymeww</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+</head>
+<body>
+    <header>
+        <h1>Привет! Я Kirymeww 🌟</h1>
+        <nav>
+            <ul>
+                <li><button class="nav-btn" data-target="about">Обо Мне</button></li>
+                <li><button class="nav-btn" data-target="projects">Проекты</button></li>
+                <li><button class="nav-btn" data-target="contact">Контакты</button></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Переключить тему">🌙</button>
+    </header>
+    <main>
+        <section id="about" class="content">
+            <h2>Обо Мне 🌸</h2>
+            <p>Привет! Я Kirymeww. 💖 Я увлекаюсь программированием и разработкой разных проектов. 🌈 В своей работе я использую зачастую Python и JavaScript, иногда C++ 🛠️</p>
+            <p>В свободное время изучаю новые языки программирования. Ну и иногда играю в My Singing Monsters. 🤓🚀</p>
+        </section>
+        <section id="projects" class="content">
+            <h2>Проекты 💻</h2>
+            <ul>
+                <li>
+                    <h3>Проект 1 🚀</h3>
+                    <p>Описание проекта: Это телеграмм бот для развлечений. 🎨💡</p>
+                    <a href="https://github.com/Kirymeww/gamebot" target="_blank">Посмотреть проект</a>
+                </li>
+                <li>
+                    <h3>Проект 2 🌟</h3>
+                    <p>Описание проекта: Это юзер-бот для телеграмма чтобы генерировать шутки и продолжать истории. 🔧✨</p>
+                    <a href="https://github.com/Kirymeww/userbot" target="_blank">Посмотреть проект</a>
+                </li>
+                <!-- Добавьте больше проектов при необходимости -->
+            </ul>
+        </section>
+        <section id="contact" class="content">
+            <h2>Контакты 📩</h2>
+            <p>Хотите связаться со мной? Вот как это сделать:</p>
+            <ul>
+                <li>Почта: <a href="mailto:kirymeww@gmail.com">kirymeww@gmail.com</a></li>
+                <li>GitHub: <a href="https://github.com/Kirymeww" target="_blank">github.com/Kirymeww</a></li>
+                <li>Telegram: <a href="https://t.me/Kirymeww" target="_blank">@Kirymeww/li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; (2024) Kirymeww. Все права защищены.</p>
+    </footer>
+    <button id="scroll-to-top" title="Вернуться к верху">&uarr;</button>
+    <script>
+        // Переключение видимости секций
+        document.querySelectorAll('.nav-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+                document.querySelectorAll('.content').forEach(section => {
+                    if (section.id === targetId) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Показ секции по умолчанию
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('#about').style.display = 'block';
+            document.querySelector('#projects').style.display = 'none';
+            document.querySelector('#contact').style.display = 'none';
+        });
+
+        // Плавный скроллинг
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Плавная анимация при загрузке страницы
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.content').forEach((element) => {
+                element.classList.add('fade-in-visible');
+            });
+        });
+
+        // Кнопка "вернуться к верху"
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.opacity = 1;
+            } else {
+                scrollToTopBtn.style.opacity = 0;
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Переключение темы
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggleBtn.textContent = document.body.classList.contains('dark-mode') ? '🌕' : '🌙';
+        });
+    </script>
+</body>
+</html>
